@@ -1,0 +1,68 @@
+﻿
+
+
+@model UserUpdateDto
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Kullanıcı Yönetimi /</span>Kullanıcı Ekle</h4>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <h5 class="card-header"></h5>
+                <form asp-controller="User" asp-action="Update" method="post">
+                    <input  type="hidden" asp-for="Id"/>
+                    <div asp-validation-summary="All" style="color:red;"></div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="FirstName" for="defaultFormControlInput" class="form-label">Kullanıcı Adı</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="defaultFormControlInput"
+                                   placeholder="Kategori Adı giriniz"
+                                   asp-for="FirstName"
+                                   aria-describedby="defaultFormControlHelp" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName" for="defaultFormControlInput" class="form-label">Kullanıcı Soyadı</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="defaultFormControlInput"
+                                   placeholder="Soyad"
+                                   asp-for="LastName"
+                                   aria-describedby="defaultFormControlHelp" />
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" for="defaultFormControlInput" class="form-label">Kullanıcı Mail</label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="defaultFormControlInput"
+                                   placeholder="Email"
+                                   asp-for="Email"
+                                   aria-describedby="defaultFormControlHelp" />
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" for="defaultFormControlInput" class="form-label">Kullanıcı Telefonu</label>
+                            <input type="tel"
+                                   class="form-control"
+                                   id="defaultFormControlInput"
+                                   placeholder="Soyad"
+                                   asp-for="PhoneNumber"
+                                   aria-describedby="defaultFormControlHelp" />
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="RoleId" for="defaultFormControlInput" class="form-label">Kullanıcı Rolü</label>
+                            <select asp-for="RoleId" class="form-control" asp-items="@(new SelectList(Model.Roles,"Id","Name"))"></select>
+
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class=" btn btn-primary btn-blockı">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
